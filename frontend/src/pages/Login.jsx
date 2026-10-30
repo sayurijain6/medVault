@@ -45,7 +45,8 @@ export default function Login() {
       setRole(role);
       navigate(dashboardPath);
     } catch (err) {
-      setToast({ message: 'Google Sign-In failed', type: 'error' });
+      console.error('Google Sign-In failed', err);
+      setToast({ message: `Google Sign-In failed: ${err.code || err.message}`, type: 'error' });
     }
   };
 
